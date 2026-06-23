@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Park | Book Slot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">P</span>
+        <span>
+          <strong>Smart Park</strong>
+          <small>Book Slot 01</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Dashboard</a>
+        <a class="active" href="booking.html">Book Slot</a>
+      </nav>
+    </header>
+
+    <main class="booking-layout">
+      <section class="booking-form-panel">
+        <div class="section-heading">
+          <span class="eyebrow">Online Booking</span>
+          <h1>Reserve Parking Slot 01</h1>
+        </div>
+
+        <form id="bookingForm" class="booking-form">
+          <label>
+            Full Name
+            <input id="userName" type="text" placeholder="Enter your name" autocomplete="name" required>
+          </label>
+
+          <label>
+            Vehicle Number
+            <input id="vehicleNumber" type="text" placeholder="Example: MH12AB1234" maxlength="15" required>
+          </label>
+
+          <div class="form-row">
+            <label>
+              Start Time
+              <input id="startTime" type="datetime-local" required>
+            </label>
+            <label>
+              End Time
+              <input id="endTime" type="datetime-local" required>
+            </label>
+          </div>
+
+          <div class="price-box">
+            <div>
+              <span>Rate</span>
+              <strong>₹20/hour</strong>
+            </div>
+            <div>
+              <span>Duration</span>
+              <strong id="durationText">0 hr</strong>
+            </div>
+            <div>
+              <span>Total Amount</span>
+              <strong id="priceText">₹0</strong>
+            </div>
+          </div>
+
+          <p id="formMessage" class="form-message" role="alert"></p>
+          <button id="confirmBookingBtn" class="btn primary full" type="submit">Confirm Booking</button>
+        </form>
+      </section>
+
+      <aside class="booking-side">
+        <div class="mini-slot state-free" id="bookingMiniSlot">
+          <span id="bookingStatusText">Checking...</span>
+        </div>
+        <div class="metric-card">
+          <span>Current Slot Status</span>
+          <strong id="bookingLiveStatus">Loading</strong>
+        </div>
+        <div class="metric-card">
+          <span>Booking Rule</span>
+          <strong>Book only when free</strong>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

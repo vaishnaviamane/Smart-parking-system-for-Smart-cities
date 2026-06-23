@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Park | QR Ticket</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">P</span>
+        <span>
+          <strong>Smart Park</strong>
+          <small>QR Ticket</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Dashboard</a>
+        <a href="booking.html">Book Slot</a>
+      </nav>
+    </header>
+
+    <main class="ticket-layout">
+      <section id="ticketCard" class="ticket-card">
+        <div class="section-heading center">
+          <span class="eyebrow">Confirmed Booking</span>
+          <h1>Parking QR Ticket</h1>
+        </div>
+
+        <div id="qrcode" class="qr-box">
+          <img id="staticQrCode" src="assets/qrcode.png" alt="Parking booking QR code">
+        </div>
+
+        <dl class="ticket-details">
+          <div><dt>Booking ID</dt><dd id="ticketBookingId">-</dd></div>
+          <div><dt>Name</dt><dd id="ticketName">-</dd></div>
+          <div><dt>Vehicle Number</dt><dd id="ticketVehicle">-</dd></div>
+          <div><dt>Slot Number</dt><dd>01</dd></div>
+          <div><dt>Start Time</dt><dd id="ticketStart">-</dd></div>
+          <div><dt>End Time</dt><dd id="ticketEnd">-</dd></div>
+          <div><dt>Amount Paid</dt><dd id="ticketAmount">Rs. 0</dd></div>
+        </dl>
+
+        <div class="ticket-actions">
+          <button id="downloadTicketBtn" class="btn primary" type="button">Download Ticket</button>
+          <a class="btn ghost" href="index.html">Back to Dashboard</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

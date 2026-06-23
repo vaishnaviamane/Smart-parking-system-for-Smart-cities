@@ -1,0 +1,11 @@
+{
+  "parkingSlot": {
+    "status": "free",
+    "bookedBy": "",
+    "vehicleNumber": "",
+    "startTime": "",
+    "endTime": "",
+    "price": "",
+    "bookingId": ""
+  }
+}

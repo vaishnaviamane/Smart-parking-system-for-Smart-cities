@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Parking Cities For Smart Cities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">P</span>
+        <span>
+          <strong>Smart Parking</strong>
+          <small>For Smart Cities</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="active" href="index.html">Dashboard</a>
+        <a href="booking.html">Book Slot</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">NodeMCU + HC-SR04 + Firebase</span>
+          <h1>One smart parking slot, live from sensor to screen.</h1>
+          <p>
+            Watch the slot switch between FREE, BOOKED, and OCCUPIED in realtime.
+            Book online, calculate pricing automatically, and generate a QR ticket. Developed by Adisri.
+          </p>
+          <div class="hero-actions">
+            <a id="bookNowHero" class="btn primary" href="booking.html">Book Now</a>
+            <a class="btn ghost" href="#dashboard">View Live Slot</a>
+          </div>
+        </div>
+
+        <aside class="status-card" aria-live="polite">
+          <span id="connectionState" class="connection-dot">Connecting to Firebase</span>
+          <h2>Slot 01</h2>
+          <div id="summaryStatus" class="summary-status free">FREE</div>
+          <p id="summaryText">Waiting for live parking data...</p>
+        </aside>
+      </section>
+
+      <section id="dashboard" class="dashboard-grid">
+        <article class="parking-panel">
+          <div class="section-heading">
+            <span class="eyebrow"></span>
+            <h2>Realistic Parking Area</h2>
+          </div>
+
+          <div class="parking-scene">
+            <div class="road-lane">
+              <span></span><span></span><span></span><span></span>
+            </div>
+
+            <div id="parkingSlot" class="parking-slot state-free">
+              <div class="slot-floor">
+                <span class="line top"></span>
+                <span class="line bottom"></span>
+                <span class="line left"></span>
+                <span class="line right"></span>
+                <span class="slot-number">01</span>
+                <img id="carImage" class="car-image" src="assets/car.png" alt="Parked car">
+                <div id="reservedMark" class="reserved-mark">RESERVED</div>
+                <div class="slot-center">
+                  <strong id="slotStatusText">FREE</strong>
+                  <small id="slotSubText">Slot is available now</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="info-panel">
+          <div class="metric-card">
+            <span>Status</span>
+            <strong id="liveStatus">FREE</strong>
+          </div>
+          <div class="metric-card">
+            <span>Booked By</span>
+            <strong id="liveBookedBy">None</strong>
+          </div>
+          <div class="metric-card">
+            <span>Vehicle</span>
+            <strong id="liveVehicle">None</strong>
+          </div>
+          <div class="metric-card">
+            <span>Timing</span>
+            <strong id="liveTiming">Not booked</strong>
+          </div>
+          <div class="metric-card">
+            <span>Amount</span>
+            <strong id="livePrice">₹0</strong>
+          </div>
+          <div class="metric-card">
+    <span>Total Vehicles Entered Today</span>
+    <strong>124</strong>
+</div>
+
+<div class="metric-card">
+    <span>Total Vehicles Exited Today</span>
+    <strong>108</strong>
+</div>
+
+<div class="metric-card">
+    <span>Available Slots</span>
+<strong>4 / 5</strong>
+</div>
+
+<div class="metric-card">
+    <span>Entry Gate</span>
+    <strong>OPEN</strong>
+</div>
+
+<div class="metric-card">
+    <span>Exit Gate</span>
+    <strong>CLOSED</strong>
+</div>
+          <a id="bookNowSide" class="btn primary full" href="booking.html">Book Now</a>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div id="bookingModal" class="modal-backdrop" aria-hidden="true">
+    <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeBookingModal" class="modal-close" type="button" aria-label="Close booking popup">×</button>
+      <span class="eyebrow">Slot 01 Available</span>
+      <h2 id="modalTitle">Reserve this parking slot now</h2>
+      <p>The slot is currently free. Continue to the booking form to enter your vehicle details and generate your QR ticket.</p>
+      <div class="modal-actions">
+        <a class="btn primary full" href="booking.html">Continue Booking</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
